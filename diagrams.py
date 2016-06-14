@@ -14,11 +14,11 @@ legend_turtle = turtle.Turtle()
 legend_turtle.speed(10)
 
 
-def sector_diagram(str):
-    words = re.sub('\W', ' ', str).split()
+def sector_diagram(a1):
+    words = re.sub('\W', ' ', a1).split()
     count_word = Counter(words)
     count_words = 0
-    for i in words:
+    for _ in words:
         count_words += 1
     my_turtle.left(90)
     my_turtle.pendown()
@@ -54,13 +54,13 @@ def sector_diagram(str):
     my_turtle.hideturtle()
 
 
-def rays_diagram(str):
-    words = re.sub('\W', ' ', str).split()
+def rays_diagram(a1):
+    words = re.sub('\W', ' ', a1).split()
     count_word = Counter(words)
     type_words, count_words = 0, 0
-    for i in count_word:
+    for _ in count_word:
         type_words += 1
-    for i in words:
+    for _ in words:
         count_words += 1
     angle = 360 / type_words
     # my_turtle.left(90)
@@ -74,7 +74,6 @@ def rays_diagram(str):
             j += 1
         my_turtle.penup()
         position = my_turtle.pos()
-        print position
         if position[1] > 5.00:
             my_turtle.goto(my_turtle.xcor(), my_turtle.ycor() + 10)
         elif -5.00 < position[1] < 5.00:
@@ -101,7 +100,7 @@ def main(str, method):
         sector_diagram(str)
 
 if __name__ == "__main__":
-    str = 'My name - Nastya, name. LightIT. text text'
-    main(str, 'sector')
+    text = 'My name - Nastya, name. LightIT. text text'
+    main(text, 'sector')
     # main(str, 'rays')
     turtle.done()

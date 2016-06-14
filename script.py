@@ -10,8 +10,8 @@ my_turtle.speed(10)
 
 def first_triangle(count_div, side_t, dot):
     h = (math.sqrt(3)/2) * side_t
-    dot[0] = dot[0] + side_t/2
-    dot[1] = dot[1] - h/2
+    dot[0] += side_t/2
+    dot[1] -= h/2
 
     my_turtle.fillcolor("#98FF98")
     my_turtle.penup()
@@ -22,15 +22,15 @@ def first_triangle(count_div, side_t, dot):
     while i <= 3:
         my_turtle.left(120)
         my_turtle.forward(side_t)
-        i = i + 1
+        i += 1
     my_turtle.end_fill()
     my_turtle.penup()
     little_triangles(count_div, side_t/2, dot)
 
 
 def little_triangles(count_div, side_t, dot):
-    count_div = count_div - 1
-    if count_div < 1 :
+    count_div -= 1
+    if count_div < 1:
         return
     my_turtle.goto(dot)
     my_turtle.pendown()
@@ -45,7 +45,7 @@ def little_triangles(count_div, side_t, dot):
         my_turtle.forward(side_t)
         my_turtle.left(120)
         start_dots[i] = my_turtle.pos()
-        i = i + 1
+        i += 1
     my_turtle.end_fill()
     my_turtle.left(180)
     my_turtle.penup()
@@ -59,5 +59,5 @@ def main():
     first_triangle(4, 200, start_position)
     turtle.done()
 
-if __name__ == "__main__" :
+if __name__ == "__main__":
     main()
